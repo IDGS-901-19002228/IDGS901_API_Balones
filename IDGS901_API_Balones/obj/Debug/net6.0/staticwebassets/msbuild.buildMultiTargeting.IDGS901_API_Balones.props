@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\IDGS901_API_Balones.props" />
+</Project>
