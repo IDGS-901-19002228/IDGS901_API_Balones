@@ -13,6 +13,8 @@ namespace IDGS901_API_Balones.Models
         public string? Descripcion { get; set; }
 
         public int Precio { get; set; }
+        
+        public decimal Rating {  get; set; }
 
         public int? Stock { get; set; }
 

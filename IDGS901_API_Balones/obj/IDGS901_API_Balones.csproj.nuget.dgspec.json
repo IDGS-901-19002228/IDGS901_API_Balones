@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Ferna\\OneDrive\\Escritorio-Windows\\Proyecto-Angular-Balones\\IDGS901_API_Balones\\IDGS901_API_Balones\\IDGS901_API_Balones.csproj": {}
+    "C:\\Users\\Ferna\\OneDrive\\Escritorio-Windows\\Proyecto-Balones\\04_Apis\\IDGS901_API_Balones\\IDGS901_API_Balones\\IDGS901_API_Balones.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Ferna\\OneDrive\\Escritorio-Windows\\Proyecto-Angular-Balones\\IDGS901_API_Balones\\IDGS901_API_Balones\\IDGS901_API_Balones.csproj": {
+    "C:\\Users\\Ferna\\OneDrive\\Escritorio-Windows\\Proyecto-Balones\\04_Apis\\IDGS901_API_Balones\\IDGS901_API_Balones\\IDGS901_API_Balones.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Ferna\\OneDrive\\Escritorio-Windows\\Proyecto-Angular-Balones\\IDGS901_API_Balones\\IDGS901_API_Balones\\IDGS901_API_Balones.csproj",
+        "projectUniqueName": "C:\\Users\\Ferna\\OneDrive\\Escritorio-Windows\\Proyecto-Balones\\04_Apis\\IDGS901_API_Balones\\IDGS901_API_Balones\\IDGS901_API_Balones.csproj",
         "projectName": "IDGS901_API_Balones",
-        "projectPath": "C:\\Users\\Ferna\\OneDrive\\Escritorio-Windows\\Proyecto-Angular-Balones\\IDGS901_API_Balones\\IDGS901_API_Balones\\IDGS901_API_Balones.csproj",
+        "projectPath": "C:\\Users\\Ferna\\OneDrive\\Escritorio-Windows\\Proyecto-Balones\\04_Apis\\IDGS901_API_Balones\\IDGS901_API_Balones\\IDGS901_API_Balones.csproj",
         "packagesPath": "C:\\Users\\Ferna\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Ferna\\OneDrive\\Escritorio-Windows\\Proyecto-Angular-Balones\\IDGS901_API_Balones\\IDGS901_API_Balones\\obj\\",
+        "outputPath": "C:\\Users\\Ferna\\OneDrive\\Escritorio-Windows\\Proyecto-Balones\\04_Apis\\IDGS901_API_Balones\\IDGS901_API_Balones\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Ferna\\AppData\\Roaming\\NuGet\\NuGet.Config",

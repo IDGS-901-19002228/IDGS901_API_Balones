@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="IIS Web Application Name" description="" value="IDGS901APIBalones20231114015214" tags="IisApp">
+    <parameterEntry kind="ProviderPath" scope="IisApp" match="^C:\\Users\\Ferna\\OneDrive\\Escritorio-Windows\\Proyecto-Balones\\04_Apis\\IDGS901_API_Balones\\IDGS901_API_Balones\\obj\\Release\\net6\.0\\PubTmp\\Out\\$" />
+  </parameter>
+</parameters>

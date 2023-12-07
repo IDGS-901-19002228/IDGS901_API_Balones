@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "IvqODOWDAo+lL1fgpkP2nqaiuleFKY948ilmZjVWxnoMyEgnm1zwndLpUd/jkEhNoa5Bsg9CFm1jjkUn3ohAaw==",
+  "dgSpecHash": "jFjzgTcAWmUnnTBhzmJwDPu9G6Z6biF6XNclTTWzVqUR5cbTrWjftwFMXRyCwf9MfMD6pkmuiE0qV7Td7/3LAg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Ferna\\OneDrive\\Escritorio-Windows\\Proyecto-Angular-Balones\\IDGS901_API_Balones\\IDGS901_API_Balones\\IDGS901_API_Balones.csproj",
+  "projectFilePath": "C:\\Users\\Ferna\\OneDrive\\Escritorio-Windows\\Proyecto-Balones\\04_Apis\\IDGS901_API_Balones\\IDGS901_API_Balones\\IDGS901_API_Balones.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Ferna\\.nuget\\packages\\fluentassertions\\6.11.0\\fluentassertions.6.11.0.nupkg.sha512",
     "C:\\Users\\Ferna\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",

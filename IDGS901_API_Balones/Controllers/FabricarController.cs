@@ -20,7 +20,7 @@ namespace IDGS901_API_Balones.Controllers
 
 
         [HttpPost("{idProducto}")]
-        public IActionResult FabricarProducto(int idProducto)
+        public ActionResult FabricarProducto(int idProducto)
         {
             try
             {
@@ -31,7 +31,7 @@ namespace IDGS901_API_Balones.Controllers
                     using (SqlCommand command = connection.CreateCommand())
                     {
                         command.CommandType = CommandType.StoredProcedure;
-                        command.CommandText = "fabricarSimple";
+                        command.CommandText = "fabricar";
 
                         command.Parameters.Add(new SqlParameter("@idProducto", idProducto));
 

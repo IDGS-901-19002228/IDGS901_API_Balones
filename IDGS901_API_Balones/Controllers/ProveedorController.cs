@@ -84,6 +84,43 @@ namespace IDGS901_API_Balones.Controllers
             }
         }
 
+        [HttpPut("{id}")]
+        public ActionResult Put(int id, [FromBody] Proveedor proveedor)
+        {
+            try
+            {
+                if (proveedor.id == id)
+                {
+                    SqlConnection conexion = (SqlConnection)_context.Database.GetDbConnection();
+                    SqlCommand comando = conexion.CreateCommand();
+                    conexion.Open();
+                    comando.CommandType = System.Data.CommandType.StoredProcedure;
+                    comando.CommandText = "sp_ActualizarProveedor";
+
+                    comando.Parameters.Add("@id", System.Data.SqlDbType.Int).Value = proveedor.id;
+                    comando.Parameters.Add("@nombre", System.Data.SqlDbType.VarChar).Value = proveedor.nombre;
+                    comando.Parameters.Add("@empresa", System.Data.SqlDbType.VarChar).Value = proveedor.empresa;
+                    comando.Parameters.Add("@rfc", System.Data.SqlDbType.VarChar).Value = proveedor.rfc;
+                    comando.Parameters.Add("@telefono", System.Data.SqlDbType.VarChar).Value = proveedor.telefono;
+                    comando.Parameters.Add("@correo", System.Data.SqlDbType.VarChar).Value = proveedor.correo;
+
+                    comando.ExecuteNonQuery();
+
+                    conexion.Close();
+
+                    return Ok(proveedor);
+                }
+                else
+                {
+                    return BadRequest();
+                }
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
+
         [HttpDelete("{id}")]
         public ActionResult Delete(int id)
         {

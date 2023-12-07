@@ -1,5 +1,6 @@
 ﻿using IDGS901_API_Balones.Context;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.OpenApi.Models;
 
 namespace IDGS901_API_Balones
 {
@@ -18,6 +19,10 @@ namespace IDGS901_API_Balones
 
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddSwaggerGen(c =>
+            {
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "BalonEvo", Version = "v1" });
+            });
             services.AddCors(options =>
             {
                 var frontendURL = Configuration.GetValue<string>("frontend_url");
@@ -37,7 +42,11 @@ namespace IDGS901_API_Balones
 
         public void Configure(IApplicationBuilder app, IHostApplicationLifetime lifetime)
         {
-            
+            app.UseSwagger();
+            app.UseSwaggerUI(c =>
+            {
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "Nombre de tu API V1");
+            });
         }
     }
 }

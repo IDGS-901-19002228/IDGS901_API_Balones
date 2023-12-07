@@ -39,6 +39,7 @@ namespace IDGS901_API_Balones.Controllers
                     product.Imagen = (string)read["Imagen"];
                     product.Descripcion = (string)read["Descripcion"];
                     product.Precio = (int)read["Precio"];
+                    product.Rating = (decimal)read["Rating"];
                     product.Stock = (int)read["Stock"];
                     product.Estatus = (string)read["Estatus"];
 
@@ -69,6 +70,7 @@ namespace IDGS901_API_Balones.Controllers
                 comando.Parameters.Add("@Imagen", System.Data.SqlDbType.NVarChar).Value = product.Imagen;
                 comando.Parameters.Add("@Descripcion", System.Data.SqlDbType.NVarChar).Value = product.Descripcion;
                 comando.Parameters.Add("@Precio", System.Data.SqlDbType.Int).Value = product.Precio;
+                comando.Parameters.Add("@Rating", System.Data.SqlDbType.Decimal).Value = product.Rating;
                 comando.Parameters.Add("@Stock", System.Data.SqlDbType.NVarChar).Value = product.Stock;
 
                 comando.ExecuteNonQuery();
@@ -97,8 +99,10 @@ namespace IDGS901_API_Balones.Controllers
 
                     comando.Parameters.Add("@Id", System.Data.SqlDbType.VarChar).Value = product.Id;
                     comando.Parameters.Add("@Nombre", System.Data.SqlDbType.VarChar).Value = product.Nombre;
+                    comando.Parameters.Add("@Imagen", System.Data.SqlDbType.NVarChar).Value = product.Imagen;
                     comando.Parameters.Add("@Descripcion", System.Data.SqlDbType.VarChar).Value = product.Descripcion;
                     comando.Parameters.Add("@Precio", System.Data.SqlDbType.Int).Value = product.Precio;
+                    comando.Parameters.Add("@Rating", System.Data.SqlDbType.Decimal).Value = product.Rating;
                     comando.Parameters.Add("@Stock", System.Data.SqlDbType.Int).Value = product.Stock;
 
                     comando.ExecuteReader();
@@ -142,34 +146,84 @@ namespace IDGS901_API_Balones.Controllers
             }
         }
 
+        [HttpGet("{nombre}")]
+        public ActionResult BuscarPorNombre(string nombre)
+        {
+            try
+            {
+                List<Productos> productosEncontrados = new List<Productos>();
 
-        //[HttpPost("fabricar{idProducto}")]
-        //public IActionResult FabricarProducto(int idProducto)
-        //{
-        //    try
-        //    {
-        //        using (SqlConnection connection = (SqlConnection)_context.Database.GetDbConnection())
-        //        {
-        //            connection.Open();
+                SqlConnection conexion = (SqlConnection)_context.Database.GetDbConnection();
+                SqlCommand comando = conexion.CreateCommand();
+                conexion.Open();
+                comando.CommandType = System.Data.CommandType.StoredProcedure;
+                comando.CommandText = "sp_BuscarProductoPorNombre";
+                comando.Parameters.Add("@Nombre", System.Data.SqlDbType.NVarChar).Value = nombre;
 
-        //            using (SqlCommand command = connection.CreateCommand())
-        //            {
-        //                command.CommandType = CommandType.StoredProcedure;
-        //                command.CommandText = "fabricar";
+                SqlDataReader read = comando.ExecuteReader();
+                while (read.Read())
+                {
+                    Productos product = new Productos();
 
-        //                command.Parameters.Add(new SqlParameter("@idProducto", idProducto));
+                    product.Id = (int)read["Id"];
+                    product.Nombre = (string)read["Nombre"];
+                    product.Imagen = (string)read["Imagen"];
+                    product.Descripcion = (string)read["Descripcion"];
+                    product.Precio = (int)read["Precio"];
+                    product.Rating = (decimal)read["Rating"];
+                    product.Stock = (int)read["Stock"];
+                    product.Estatus = (string)read["Estatus"];
 
-        //                command.ExecuteNonQuery();
-        //            }
-        //        }
+                    productosEncontrados.Add(product);
+                }
+                conexion.Close();
 
-        //        return Ok(new { message = "Producto fabricado exitosamente" });
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        return BadRequest(ex.Message);
-        //    }
-        //}
+                return Json(productosEncontrados);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
+
+        [HttpGet("buscarbyid/{id}")]
+        public ActionResult GetByID(int id)
+        {
+            try
+            {
+                List<Productos> listProductos = new List<Productos>();
+
+                SqlConnection conexion = (SqlConnection)_context.Database.GetDbConnection();
+                SqlCommand comando = conexion.CreateCommand();
+                conexion.Open();
+                comando.CommandType = System.Data.CommandType.StoredProcedure;
+                comando.CommandText = "sp_GetAllProductosByID";
+                comando.Parameters.Add("@id", System.Data.SqlDbType.Int).Value = id;
+                SqlDataReader read = comando.ExecuteReader();
+                while (read.Read())
+                {
+                    Productos product = new Productos();
+
+                    product.Id = (int)read["id"];
+                    product.Nombre = (string)read["nombre"];
+                    product.Imagen = (string)read["imagen"];
+                    product.Descripcion = (string)read["descripcion"];
+                    product.Precio = (int)read["precio"];
+                    product.Rating = (decimal)read["Rating"];
+                    product.Stock = (int)read["stock"];
+                    product.Estatus = (string)read["estatus"];
+
+                    listProductos.Add(product);
+                }
+                conexion.Close();
+                return Json(listProductos);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
+
 
 
 

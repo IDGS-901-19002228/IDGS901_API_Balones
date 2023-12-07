@@ -10,7 +10,7 @@ namespace IDGS901_API_Balones.Models
         public string CalleNumero { get; set; }
         public string CodigoPostal { get; set; }
         public string Telefono { get; set; }
-        public int IdCliente { get; set; }
+        public Clientes Usuario { get; set; }
     }
 
 }

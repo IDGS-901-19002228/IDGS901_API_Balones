@@ -19,7 +19,10 @@ namespace IDGS901_API_Balones.Context
         public DbSet<Proveedor> Proveedor { get; set; }
         public DbSet<MateriaPrima> MateriaPrima { get; set; }
         public DbSet<Receta> Receta { get; set; }
+        public DbSet<Pedidos> Pedidos { get; set; }
+        public DbSet<DetallePedido> DetallePedido { get; set; }
         public DbSet<Direccion> Direccion2 { get; set; }
+        public DbSet<Tarjetas> Tarjetas { get; set; }
         public DbSet<Carrito> Carrito2 { get; set; }
         public DbSet<Venta> Venta2 { get; set; }
     }
